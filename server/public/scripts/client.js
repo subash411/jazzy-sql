@@ -96,7 +96,7 @@ function renderArtists( listOfArtists ) {
         $('#artistTableBody').append(`
                 <tr>
                     <td>${artist.artist_name}</td>
-                    <td>${artist.year_born}</td>
+                    <td>${moment(artist.year_born).format("MM Do, YYYY")}</td>
                 </tr>`
         );
     }
@@ -112,7 +112,7 @@ function renderSongs(listOfSongs) {
                 <tr>
                     <td>${song.title}</td>
                     <td>${song.length}</td>
-                    <td>${song.release}</td>
+                    <td>${moment(song.release).format("MM Do, YYYY")}</td>
                 </tr>`
             );
     }
