@@ -47,25 +47,10 @@ const songList = [
         released: '2012-02-01'
     }
 ];
+let artistRouter = require('./router/artist.router');
+app.use('/artist', artistRouter);
 
-app.get('/artist', (req, res) => {
-    console.log(`In /songs GET`);
-    res.send(artistList);
-});
-
-app.post('/artist', (req, res) => {
-    artistList.push(req.body);
-    res.sendStatus(201);
-});
-
-app.get('/song', (req, res) => {
-    console.log(`In /songs GET`);
-    res.send(songList);
-});
-
-app.post('/song', (req, res) => {
-    songList.push(req.body);
-    res.sendStatus(201);
-});
+let songRouter = require('./router/song.router');
+app.use('/song', songRouter);
 
 
