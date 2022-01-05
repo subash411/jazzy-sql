@@ -26,13 +26,13 @@ songRouter.post('/', (req, res) => {
     INSERT INTO songs
         ("title", "length", "release")
     VALUES
-        ($1,$2, $3)
+        ($1,$2,$3)
         
     `;
     let queryParams = [
         req.body.title,
         req.body.length,
-        req.body.released
+        req.body.release
 
     ];
     console.log('queryText is', queryText);

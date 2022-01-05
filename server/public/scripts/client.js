@@ -103,6 +103,7 @@ function renderArtists( listOfArtists ) {
 }
 
 function renderSongs(listOfSongs) {
+    console.log('listOfSongs', listOfSongs);
     // Empty previous data
     $('#songTableBody').empty();
     // Add all songs to table
