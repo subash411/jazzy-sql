@@ -11,12 +11,14 @@ function onReady() {
     });
 
     // load data from the server, put it on the DOM
+    
     getArtists();
     getSongs();    
 }
 
 function addArtist() {
     // Get info to send to the server
+
     const artistToSend = {
         artist_name: $('#artist-name').val(), 
         year_born: $('#artist-born').val()
@@ -25,6 +27,7 @@ function addArtist() {
     console.log('Adding artist', artistToSend);
 
     // Send the new artist to the server as data
+
     $.ajax({
         method: 'POST',
         url: '/artist',
@@ -40,6 +43,7 @@ function addArtist() {
 
 function addSong() {
     // Get info to send to the server
+
     const newSong = {
         title: $('#song-name').val(), 
         length: $('#song-length').val(),
@@ -49,6 +53,7 @@ function addSong() {
     console.log('Adding song', newSong);
 
     // Send the new artist to the server as data
+
     $.ajax({
         method: 'POST',
         url: '/song',
@@ -63,6 +68,7 @@ function addSong() {
 }
 
 function getArtists() { 
+
     // get artist data from the server
     $.ajax({
         method: 'GET',
@@ -92,6 +98,7 @@ function renderArtists( listOfArtists ) {
     $('#artistTableBody').empty();
 
     // Add all artists to table
+
     for(let artist of listOfArtists) {
         $('#artistTableBody').append(`
                 <tr>
@@ -105,8 +112,10 @@ function renderArtists( listOfArtists ) {
 function renderSongs(listOfSongs) {
     console.log('listOfSongs', listOfSongs);
     // Empty previous data
+
     $('#songTableBody').empty();
     // Add all songs to table
+
     for (let song of listOfSongs) {
         $('#songTableBody').append(`
                 <tr>

@@ -11,7 +11,7 @@ artistRouter.get('/', (req, res) => {
     const queryText = 'SELECT * FROM artists ORDER BY year_born DESC;';
     pool.query(queryText)
         .then((dbRes) =>{
-            res.send(dbRes.rows);
+        res.send(dbRes.rows);
         })
 
         .catch((err) =>{
@@ -26,9 +26,9 @@ artistRouter.post('/', (req, res) => {
     INSERT INTO artists
         ("artist_name", "year_born" )
     VALUES
-        ($1,$2)
-        
+        ($1,$2)     
     `;
+
     let queryParams = [
         req.body.artist_name,
         req.body.year_born
@@ -37,11 +37,11 @@ artistRouter.post('/', (req, res) => {
     console.log('queryText is', queryText);
     pool.query(queryText, queryParams)
         .then((dbRes)=> {
-            res.sendStatus(201);
+        res.sendStatus(201);
         })
         .catch((err)=> {
-            console.log('post /artist failed', err);
-            res.sendStatus(500);
+         console.log('post /artist failed', err);
+        res.sendStatus(500);
         })
 });
 
